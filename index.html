@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlgoMaker - Flowchart nel browser</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AlgoMaker</h1>
+      <p>Crea algoritmi a blocchi in locale, direttamente nel browser.</p>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <h2>Blocchi</h2>
+        <div class="toolbar">
+          <select id="blockType">
+            <option value="start">Start</option>
+            <option value="input">Input</option>
+            <option value="process" selected>Process</option>
+            <option value="decision">Decision</option>
+            <option value="output">Output</option>
+            <option value="end">End</option>
+          </select>
+          <button id="addBlockBtn">Aggiungi blocco</button>
+          <button id="clearBtn" class="ghost">Svuota</button>
+        </div>
+        <div class="toolbar">
+          <button id="saveJsonBtn" class="ghost">Esporta JSON</button>
+          <label class="file-import">
+            Importa JSON
+            <input id="importJsonInput" type="file" accept="application/json" />
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Flow</h2>
+        <ul id="flowList" class="flow-list"></ul>
+      </section>
+
+      <section class="panel">
+        <h2>Pseudocodice</h2>
+        <pre id="pseudoCode">// Aggiungi un blocco per iniziare</pre>
+      </section>
+    </main>
+
+    <template id="blockTemplate">
+      <li class="block-item">
+        <span class="badge"></span>
+        <input class="block-label" type="text" />
+        <div class="row-actions">
+          <button data-action="up" title="Sposta su">↑</button>
+          <button data-action="down" title="Sposta giù">↓</button>
+          <button data-action="delete" title="Elimina">✕</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
